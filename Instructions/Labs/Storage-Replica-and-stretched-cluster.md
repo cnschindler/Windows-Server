@@ -25,10 +25,11 @@
 ## Exercise 1: Preparing for Storage Replica and stretched cluster
 
 1. [Configure nested virtualization](#task-1-configure-nested-virtualization) on WIN-VN2-SRV1 and WIN-VN3-SRV1 and assign them 3 GB of memory
-1. [Configure iSCSI target and disks](#task-2-configure-iscsi-targets-and-disks): 2 targets for VN2-SRV1 and VN3-SRV1, with 2 disks each with 20 GB and 10 GB capacity
-1. [Connect to to iSCSI targets](#task-3-connect-to-iscsi-targets) on VN2-SRV1 and VN3-SRV1
-1. [Create volumes](#task-4-create-volumes): name the 20 GB disks Data and assign them the drive letter D, and the 10 GB disks Log and assign them the drive letter E on VN2-SRV1 and VN3-SRV1
-1. [Install Storage Replica feature](#task-5-install-storage-replica-feature) on VN2-SRV1 and VN3-SRV1
+1. [Enable Hypervisor loading in the boot configuration data store](#task-2-Enable-Hypervisor-loading-in-the-boot-configuration-data-store) on VN2-SRV1 and VN3-SRV1
+1. [Configure iSCSI target and disks](#task-3-configure-iscsi-targets-and-disks): 2 targets for VN2-SRV1 and VN3-SRV1, with 2 disks each with 20 GB and 10 GB capacity
+1. [Connect to to iSCSI targets](#task-4-connect-to-iscsi-targets) on VN2-SRV1 and VN3-SRV1
+1. [Create volumes](#task-5-create-volumes): name the 20 GB disks Data and assign them the drive letter D, and the 10 GB disks Log and assign them the drive letter E on VN2-SRV1 and VN3-SRV1
+1. [Install Storage Replica feature](#task-6-install-storage-replica-feature) on VN2-SRV1 and VN3-SRV1
 
 ### Task 1: Configure nested virtualization
 
@@ -67,7 +68,26 @@ Perform this task on the host.
     Start-VM -VMName $vMName
     ````
 
-### Task 2: Configure iSCSI targets and disks
+1. Wait for both VMs to startup before continuing with the next task.
+
+### Task 2: Enable Hypervisor loading in the boot configuration data store
+
+Perform this task on CL1.
+
+1. Open **Terminal**.
+1. Enable hypervisor loading in the boot configuration data store on both servers:
+   ````powershell
+    Invoke-Command -ComputerName VN2-SRV1, VN3-SRV1 -ScriptBlock {
+        bcdedit /set hypervisorlaunchtype auto
+    }
+    ````
+1. Restart both servers:
+   ````powershell
+    Invoke-Command -ComputerName VN2-SRV1, VN3-SRV1 -ScriptBlock {
+        Restart-Computer -Force
+    }
+    ````
+### Task 3: Configure iSCSI targets and disks
 
 #### Desktop experience
 
@@ -188,7 +208,7 @@ Perform these steps on CL1.
    }
    ````
 
-### Task 3: Connect to iSCSI targets
+### Task 4: Connect to iSCSI targets
 
 Perform this task on VN2-SRV1 and VN3-SRV1.
 
@@ -198,7 +218,7 @@ Perform this task on VN2-SRV1 and VN3-SRV1.
 1. In Quick Connect, click **Done**.
 1. In **iSCSI Initiator Properties**, click **OK**.
 
-### Task 4: Create volumes
+### Task 5: Create volumes
 
 <!-- #### Desktop Experience
  -->
@@ -312,7 +332,7 @@ Perform these steps on CL1.
 
 1. Leave Windows PowerShell open for the next task. -->
 
-### Task 5: Install Storage Replica feature
+### Task 6: Install Storage Replica feature
 
 <!-- You can skip this task when using Windows Admin Center in the next exercise. The necessary features are installed when using them.
  -->
