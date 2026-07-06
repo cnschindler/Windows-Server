@@ -30,7 +30,7 @@ Perform these steps on CL1.
 1. In Select Computer, ensure **Another computer** is selected, type **PM-SRV1**, and click **OK**.
 1. In **Hyper-V Manager**, click **PM-SRV1**.
 1. In the context-menu of **PM-SRV1**, click **Hyper-V Settings**.
-1. In Hyper-V Settings for PM-SRV1, ensure **Virtual Hard Disks** is selected. Under **Virtual Hard Disks**, cick **Browse...**
+1. In Hyper-V Settings for PM-SRV1, ensure **Virtual Hard Disks** is selected. Under **Virtual Hard Disks**, click **Browse...**
 1. In Select Folder, expand **pm-srv1.ad.adatum.com**, **Local Disk (C:)**, **hyper-v** and click **Virtual Hard Disks**. Click **Select Folder**.
 1. In **Hyper-V Settings for PM-SRV1**, in the left pane, click **Virtual Machines**.
 1. Under Virtual Machines, click **Browse...**.
