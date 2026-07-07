@@ -63,6 +63,18 @@ Perform these steps on CL1.
         -Path $path -Name 'https' -Value 1 -PropertyType DWORD -Force
     ````
 
+1. Open **Microsoft Edge**.
+1. In Microsoft Edge, navigate to **https://admincenter.ad.adatum.com**.
+1. In Windows Admin Center, click the icon **Settings**.
+1. In Settings, click **Access**.
+1. On tab Access, activate the **Reveal Access Key** checkbox and click **Copy**.
+1. Switch to the terminal window
+1. Store the copied access key in a variable
+
+    ```powershell
+    $AccessKey = 'Value that you copied in step 8'
+    ```
+
 1. Create a CSV file with all server computers.
 
     ```powershell
@@ -86,7 +98,7 @@ Perform these steps on CL1.
     Get-ADComputer -Filter { Name -like 'CL*' } |
     Select-Object `
         @{ name = 'name'; expression = { $PSItem.DNSHostName } }, `
-        @{ 
+        @{
             name = 'type'
             expression = { 'msft.sme.connection-type.windows-client' }
         }, `
@@ -115,10 +127,13 @@ Perform these steps on CL1.
 
     ```powershell
     Import-WACConnection `
-        -GatewayEndpoint https://admincenter.ad.adatum.com `
-        -fileName $path
+        -Endpoint https://admincenter.ad.adatum.com `
+        -fileName $path `
+        -AccessKey $AccessKey
+        -Credential (Get-Credential -Credential AD\Administrator)
     ```
 
+1. In the Credential Dialog type the password of the administrator account
 1. Open **Microsoft Edge**.
 1. In Microsoft Edge, navigate to **https://admincenter.ad.adatum.com**.
 1. In Windows Admin Center, click the icon **Settings**.
