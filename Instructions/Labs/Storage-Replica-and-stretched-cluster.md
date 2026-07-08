@@ -13,7 +13,6 @@
 ## Setup
 
 1. On CL1, sign in as **ad\Administrator**.
-1. On VN2-SRV1, sign in as **ad\Administrator**.
 
 ## Exercises
 
@@ -152,7 +151,7 @@ Perform these steps on CL1.
       New-IscsiVirtualDisk `
          -Path $PSItem.Path `
          -SizeBytes $PSItem.SizeBytes `
-         -ComputerName $computerName 
+         -ComputerName $computerName
    }
    ````
 
@@ -174,17 +173,17 @@ Perform these steps on CL1.
 1. Add the iSCSI virtual disks to the iSCSI target.
 
    ````powershell
-   $diskParams | Where-Object { $PSItem.Path -like "$path\VN2-*" } | ForEach-Object { 
+   $diskParams | Where-Object { $PSItem.Path -like "$path\VN2-*" } | ForEach-Object {
       Add-IscsiVirtualDiskTargetMapping `
          -TargetName "VN2-CLST1" `
          -Path $PSItem.Path `
-         -ComputerName $computerName 
+         -ComputerName $computerName
    }
-   $diskParams | Where-Object { $PSItem.Path -like "$path\VN3-*" } | ForEach-Object { 
+   $diskParams | Where-Object { $PSItem.Path -like "$path\VN3-*" } | ForEach-Object {
       Add-IscsiVirtualDiskTargetMapping `
          -TargetName "VN3-CLST1" `
          -Path $PSItem.Path `
-         -ComputerName $computerName 
+         -ComputerName $computerName
    }
    ````
 
@@ -278,7 +277,7 @@ Perform these steps on CL1.
    # Parameters supporting arrays accept comma-separated lists
    # In this case Initialize-Disk accepts <uint32[]> for the parameter -Number
    # See Get-Help Initialize-Disk for more information.
-   Initialize-Disk -CimSession $cimSession -Number 1, 2 
+   Initialize-Disk -CimSession $cimSession -Number 1, 2
    ````
 
 1. Create ReFS formatted volumes using the maximum size. Refer to the table below to assign drive letters and labels ([figure 2] and [figure 3]).
@@ -470,10 +469,10 @@ Perform these steps on CL1.
    ````powershell
    <#
    CIM sessions are a way to run commands using the CIM interface on remote
-   computers 
+   computers
    #>
    $cimSession = New-CimSession -ComputerName $node
-   
+
    New-ClusterFaultDomain -CimSession $cimSession[0] -Name Primary -Type Site
    New-ClusterFaultDomain -CimSession $cimSession[0] -Name Secondary -Type Site
    ````
@@ -557,7 +556,7 @@ Perform this task on VN2-SRV1.
 
    ````powershell
    $gw = Get-ADComputer -Identity "srv2"
-   Set-ADComputer $clusterName -PrincipalsAllowedToDelegateToAccount $gw 
+   Set-ADComputer $clusterName -PrincipalsAllowedToDelegateToAccount $gw
    ````
  -->
 ### Task 3: Add disk to cluster shared volumes
