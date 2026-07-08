@@ -167,7 +167,7 @@ Note: The failover cluster installation must have finished before.
 
    ````powershell
    Set-ClusterQuorum `
-      -Cluster $cluster -FileShareWitness '\\VN1-CLST1-FS\Witness\'
+      -Cluster $cluster -FileShareWitness '\\VN1-CLST1-FS\Witness'
    ````
 
 ### Task 5: Enable Storage Spaces Direct
@@ -187,7 +187,7 @@ Peform these steps on CL1.
         -Value 1 `
         -PropertyType DWORD `
         -Force
-    } 
+    }
    ````
 
 1. Set the MediaType of all disks to **HDD**
@@ -226,7 +226,7 @@ Peform these steps on CL1.
 
    ````powershell
    $cluster = Get-Cluster -Name VN1-CLST2
-   $cluster.ResiliencyDefaultPeriod = 10 
+   $cluster.ResiliencyDefaultPeriod = 10
    ````
 
 ### Task 6: Create virtual disks and volumes
@@ -463,10 +463,10 @@ Perform this task on the host.
 
     ````powershell
     $vMName = @('WIN-VN1-SRV6', 'WIN-VN1-SRV7', 'WIN-VN1-SRV11', 'WIN-VN1-SRV12')
-    $vMName | ForEach-Object { 
+    $vMName | ForEach-Object {
       Stop-VM -VMName $PSItem
       Set-VMProcessor -VMName $PSItem -ExposeVirtualizationExtensions $true
-      
+
       Get-VMNetworkAdapter -VMName $PSItem |
       Set-VMNetworkAdapter -MacAddressSpoofing On
 

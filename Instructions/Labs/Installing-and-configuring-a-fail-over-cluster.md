@@ -184,9 +184,9 @@ Perform this task on CL1.
 1. [Validate the configuration](#task-3-validate-the-configuration) on VN1-SRV4 and VN1-SRV5
 1. [Create a failover cluster](#task-4-create-a-virtual-machine) with VN1-SRV4 and VN1-SRV5 as nodes with the name VN1-CLST1 and the IP address 10.1.1.33
 1. [Configure the quorum](#task-5-configure-the-quorum) to use the smallest disk as disk witness
-1. [Configure Cluster Shared Volumes](#task-6-configure-cluster-shared-volumes) 
+1. [Configure Cluster Shared Volumes](#task-6-configure-cluster-shared-volumes)
 1. [Configure cluster networks](#task-7-configure-cluster-networks)
-   
+
 ### Task 1: Install the Remote Server Administration Failover Clustering Tools
 
 #### Desktop experience
@@ -310,18 +310,18 @@ Perform this task on CL1.
     ````powershell
     $cluster = 'VN1-CLST1'
     $cimSession = New-CimSession -ComputerName $cluster
-    Get-ClusterResource -Cluster $cluster | 
-    Where-Object { $PSItem.ResourceType -eq 'Physical Disk' } | 
-    Get-ClusterParameter -Name DiskGuid | ForEach-Object { 
+    Get-ClusterResource -Cluster $cluster |
+    Where-Object { $PSItem.ResourceType -eq 'Physical Disk' } |
+    Get-ClusterParameter -Name DiskGuid | ForEach-Object {
         $name = $PSItem.ClusterObject
-        Get-Disk -CimSession $cimSession -Path "\\?\Disk$($PSItem.Value)" | 
+        Get-Disk -CimSession $cimSession -Path "\\?\Disk$($PSItem.Value)" |
         Select-Object `
             @{ label = 'Name'; expression = { $name } }, `
             PartitionStyle, `
-            @{ 
+            @{
                 label = 'Total Size'
-                expression = { "$($PSItem.Size / 1GB) GB" } 
-            } 
+                expression = { "$($PSItem.Size / 1GB) GB" }
+            }
     }
     Remove-CimSession -CimSession $cimSession
     ````
@@ -346,7 +346,7 @@ Use the following table to configure disks accordingly:
     |------|----------|------|
     |      | 10,0 GB  |      |
     |      | 80,0 GB  |      |
-    
+
 #### Desktop experience
 
 Perform this task on CL1.
@@ -372,18 +372,18 @@ Perform this task on CL1.
     $cimSession = New-CimSession -ComputerName $cluster
     $cluster = 'VN1-CLST1'
     $cimSession = New-CimSession -ComputerName $cluster
-    Get-ClusterResource -Cluster $cluster | 
-    Where-Object { $PSItem.ResourceType -eq 'Physical Disk' } | 
-    Get-ClusterParameter -Name DiskGuid | ForEach-Object { 
+    Get-ClusterResource -Cluster $cluster |
+    Where-Object { $PSItem.ResourceType -eq 'Physical Disk' } |
+    Get-ClusterParameter -Name DiskGuid | ForEach-Object {
         $name = $PSItem.ClusterObject
-        Get-Disk -CimSession $cimSession -Path "\\?\Disk$($PSItem.Value)" | 
+        Get-Disk -CimSession $cimSession -Path "\\?\Disk$($PSItem.Value)" |
         Select-Object `
             @{ label = 'Name'; expression = { $name } }, `
             PartitionStyle, `
-            @{ 
+            @{
                 label = 'Total Size'
-                expression = { "$($PSItem.Size / 1GB) GB" } 
-            } 
+                expression = { "$($PSItem.Size / 1GB) GB" }
+            }
     }
 
     Remove-CimSession -CimSession $cimSession
@@ -405,7 +405,7 @@ Perform this task on CL1.
 1. Query the paths of the cluster shared volumes and fill the column path in the table above.
 
     ````powershell
-    Get-ClusterSharedVolume -Cluster $cluster | 
+    Get-ClusterSharedVolume -Cluster $cluster |
     Select-Object Name, SharedVolumeInfo
     ````
 
@@ -579,7 +579,7 @@ Perform this task on CL1.
 Perform this task on CL1.
 
 1. Open **Terminal**.
-1. In Terminal, test the connection to 10.1.1.184 or a long period.
+1. In Terminal, test the connection to 10.1.1.184 for a long period.
 
     ````powershell
     Test-Connection -ComputerName 10.1.1.184 -Count 1000
