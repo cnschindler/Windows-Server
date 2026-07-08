@@ -577,7 +577,7 @@ Perform this task on CL1.
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, expand **VN1-CLST2.ad.adatum.com** and click **Roles**.
 1. Under Roles (1), in the context-menu of **VN1-SRV24**, click **Connect...**.
-1. In VN1-SRV23 on VN1-SRV4 - Virtual Machine Connection, click on the desktop, **System tools**, **ControlPanel**.
+1. In VN1-SRV24 on VN1-SRV6 - Virtual Machine Connection, click on the desktop, **System tools**, **ControlPanel**.
 1. In ControlPanel, click **Network**.
 1. In Network, under **IP Address**, type  **10.1.1.192**. Under **Gateway**, type **10.1.1.1**. Under **NameServers**, type **10.1.1.8**. Ensure that under **Save Configuration**, **Yes** is selected. Click **Apply** and click **Exit**.
 
