@@ -129,7 +129,7 @@ Perform these steps on CL1.
     Import-WACConnection `
         -Endpoint https://admincenter.ad.adatum.com `
         -fileName $path `
-        -AccessKey $AccessKey
+        -AccessKey $AccessKey `
         -Credential (Get-Credential -Credential AD\Administrator)
     ```
 
