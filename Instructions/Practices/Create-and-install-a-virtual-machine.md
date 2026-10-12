@@ -23,7 +23,7 @@ Perform these steps on CL1.
 1. In New Virtual Machine Wizard, on page Before You Begin, click **Next >**.
 1. On page Specify name and Location, in **Name**, type **PM-SRV20** and click **Next >**.
 1. On page Specify Generation, click **Generation 2** and click **Next >**.
-1. On page Assign Memory, in **Startup Memory**, type **1024** and click **Next >**.
+1. On page Assign Memory, in **Startup Memory**, type **2048** and click **Next >**.
 1. On page Configure Networking, in **Connection**, click **External** and click **Next >**.
 1. On page Connect virtual hard disk, ensure **Create a virtual hard disk** is selected. In **Name**, ensure **PM-SRV20.vhdx**, and, in location **C:\\hyper-v\\Virtual Hard Disks\\** is filled in. Click **Next >**.
 1. On page Installation Options, click **Install an operating system from a bootable image file** and click **Browse...**
