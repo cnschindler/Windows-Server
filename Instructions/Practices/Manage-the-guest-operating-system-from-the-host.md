@@ -124,7 +124,7 @@ Perform these steps on CL1.
     Copy-VMFile `
         -ComputerName PM-SRV1 `
         -Name PM-SRV20 `
-        -SourcePath C:\LabResources\2022_x64_EN_Eval.iso `
+        -SourcePath C:\LabResources\2025_x64_EN_Eval.iso `
         -DestinationPath C:\LabResources `
         -FileSource Host `
         -CreateFullPath
