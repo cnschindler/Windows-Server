@@ -210,7 +210,7 @@ Peform this task on CL1.
 1. Restart the service LanmanServer on VN1-SRV10.
 
    ````powershell
-   Invoke-Command -ComputerName $computerName -ScriptBlock { 
+   Invoke-Command -ComputerName $computerName -ScriptBlock {
       Restart-Service LanmanServer
    }
 
@@ -230,12 +230,12 @@ Perform this task on the host.
    ````
 
 1. Enter the credentials of **Administrator** on VN1-SRV10.
-1. Copy **C:\\Labs\\ISOs\\2022_x64_EN_Eval** from the host to **V:\\** in an infinite loop.
+1. Copy **C:\\Labs\\ISOs\\2025_x64_EN_Eval** from the host to **V:\\** in an infinite loop.
 
    ````powershell
-   while ($true) { 
+   while ($true) {
       Copy-Item `
-         -Path 'C:\Labs\ISOs\2022_x64_EN_Eval.iso' -Destination 'V:\' -Force
+         -Path 'C:\Labs\ISOs\2025_x64_EN_Eval.iso' -Destination 'V:\' -Force
    }
    ````
 
@@ -250,11 +250,11 @@ Perform this task on the host.
 
    ````powershell
    $vMName = 'WIN-VN1-SRV10'
-   $vhd = Get-VMHardDiskDrive -VMName $vMName | Get-VHD | Where-Object { 
+   $vhd = Get-VMHardDiskDrive -VMName $vMName | Get-VHD | Where-Object {
       $PSItem.Size -eq 1TB
    }
    $vMHardDiskDrive = Get-VMHardDiskDrive -VMName $vMName | Where-Object {
-      $PSItem.Path -in $vhd.Path 
+      $PSItem.Path -in $vhd.Path
    }
    ````
 
@@ -302,10 +302,10 @@ Perform this task on the host.
 1. In the instance of Windows PowerShell or Terminal, where you removed the hard disk, create two new virtual hard disks of 1 TB in size.
 
    ````powershell
-   $vhd = 0..1 | ForEach-Object { 
+   $vhd = 0..1 | ForEach-Object {
       New-VHD `
          -Path `
-            "C:\Labs\WS2022\VMVirtualHardDisks\WIN-VN1-SRV10-Replacement-$PSItem.VHDX" `
+            "C:\Labs\WS2025\VMVirtualHardDisks\WIN-VN1-SRV10-Replacement-$PSItem.VHDX" `
          -SizeBytes 1TB
       }
    ````
@@ -313,7 +313,7 @@ Perform this task on the host.
 1. Add the new virtual hard disks to WIN-VN1-SRV10.
 
    ````powershell
-   $vhd | ForEach-Object { 
+   $vhd | ForEach-Object {
       Add-VMHardDiskDrive -VMName $vMName -Path $PSItem.Path
    }
    ````
@@ -351,11 +351,11 @@ Perform this task on the host.
 1. In the instance of Windows PowerShell or Terminal, where you removed the hard disks, remove three hard disk. You may use a different index numbers of your choice.
 
    ````powershell
-   $vhd = Get-VMHardDiskDrive -VMName $vMName | Get-VHD | Where-Object { 
+   $vhd = Get-VMHardDiskDrive -VMName $vMName | Get-VHD | Where-Object {
       $PSItem.Size -eq 1TB
    }
    $vMHardDiskDrive = Get-VMHardDiskDrive -VMName $vMName | Where-Object {
-      $PSItem.Path -in $vhd.Path 
+      $PSItem.Path -in $vhd.Path
    }
    $vMHardDiskDrive[0, 2, 4] | Remove-VMHardDiskDrive
    ````
@@ -427,7 +427,7 @@ Perform these steps on the host.
 1. In Windows PowerShell (Admin) or Terminal, create three new virtual hard disks of 1 TB size each.
 
    ````powershell
-   $vhd = 2..4 | ForEach-Object { 
+   $vhd = 2..4 | ForEach-Object {
       New-VHD `
          -Path `
             "C:\Labs\WS2022\VMVirtualHardDisks\WIN-VN1-SRV10-Replacement-$PSItem.VHDX" `
@@ -438,7 +438,7 @@ Perform these steps on the host.
 1. Add the new virtual hard disks to WIN-VN1-SRV10.
 
    ````powershell
-   $vhd | ForEach-Object { 
+   $vhd | ForEach-Object {
       Add-VMHardDiskDrive -VMName WIN-VN1-SRV10 -Path $PSItem.Path
    }
    ````
@@ -457,16 +457,16 @@ Perform these steps on CL1.
 1. On VN1-SRV10, set the media type of the **100 GB** physical disks to **SSD**.
 
    ````powershell
-   Get-PhysicalDisk -CimSession $cimSession | 
-   Where-Object { $PSItem.Size -eq 100GB } | 
+   Get-PhysicalDisk -CimSession $cimSession |
+   Where-Object { $PSItem.Size -eq 100GB } |
    Set-PhysicalDisk -MediaType SSD -CimSession $cimSession
    ````
 
 1. On VN1-SRV10, set the media type of the **1 TB** physical disks to **HDD**.
 
    ````powershell
-   Get-PhysicalDisk -CimSession $cimSession | 
-   Where-Object { $PSItem.Size -eq 1TB } | 
+   Get-PhysicalDisk -CimSession $cimSession |
+   Where-Object { $PSItem.Size -eq 1TB } |
    Set-PhysicalDisk -MediaType HDD -CimSession $cimSession
    ````
 
