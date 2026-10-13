@@ -148,7 +148,7 @@ Perform these steps on CL1.
       New-IscsiVirtualDisk `
          -Path $PSItem.Path `
          -SizeBytes $PSItem.SizeBytes `
-         -ComputerName $computerName 
+         -ComputerName $computerName
    }
    ````
 
@@ -170,11 +170,11 @@ Perform these steps on CL1.
 1. Add the iSCSI virtual disks to the iSCSI target.
 
    ````powershell
-   $diskParams | ForEach-Object { 
+   $diskParams | ForEach-Object {
       Add-IscsiVirtualDiskTargetMapping `
          -TargetName $targetName `
          -Path $PSItem.Path `
-         -ComputerName $computerName 
+         -ComputerName $computerName
       }
    ````
 
@@ -415,7 +415,7 @@ Perform this task on CL1
    ````powershell
    $volumeParams | ForEach-Object {
       $size = $PSItem.Size
-      $physicalDisk = Get-PhysicalDisk -CimSession $cimSession  | 
+      $physicalDisk = Get-PhysicalDisk -CimSession $cimSession  |
          Where-Object { $PSItem.Size -eq $size }
       New-Partition `
          -DiskId $physicalDisk.UniqueId `
@@ -499,12 +499,12 @@ Perform this task on the host.
    ````
 
 1. Enter the credentials of **Administrator** on VN1-SRV5.
-1. Copy **C:\\Labs\\ISOs\\2022_x64_EN_Eval** from the host to **D:\\** on WIN-VN1-SRV5 in an infinite loop. Pause for 10 seconds after each iteration.
+1. Copy **C:\\Labs\\ISOs\\2025_x64_EN_Eval** from the host to **D:\\** on WIN-VN1-SRV5 in an infinite loop. Pause for 10 seconds after each iteration.
 
    ````powershell
-   while ($true) { 
+   while ($true) {
       Copy-Item `
-         -Path 'C:\Labs\ISOs\2022_x64_EN_Eval.iso' -Destination 'V:\' -Force
+         -Path 'C:\Labs\ISOs\2025_x64_EN_Eval.iso' -Destination 'V:\' -Force
    }
    ````
 
@@ -538,7 +538,7 @@ Perform this task on the host.
    ````powershell
    $vMName = 'WIN-VN1-SRV5'
    $switchName = 'SAN1'
-   Get-VMNetworkAdapter -VMName $vMName | 
+   Get-VMNetworkAdapter -VMName $vMName |
    Where-Object { $PSItem.SwitchName -eq $switchName } |
    Disconnect-VMNetworkAdapter
    ````
@@ -548,8 +548,8 @@ Perform this task on the host.
 1. Reconnect the disconnected network adapter.
 
    ````powershell
-   Get-VMNetworkAdapter -VMName $vMName | 
-   Where-Object { -not $PSItem.Connected } | 
+   Get-VMNetworkAdapter -VMName $vMName |
+   Where-Object { -not $PSItem.Connected } |
    Connect-VMNetworkAdapter -SwitchName $switchName
    ````
 
@@ -559,7 +559,7 @@ Perform this task on the host.
 
    ````powershell
    $switchName = 'SAN2'
-   Get-VMNetworkAdapter -VMName $vMName | 
+   Get-VMNetworkAdapter -VMName $vMName |
    Where-Object { $PSItem.SwitchName -eq $switchName } |
    Disconnect-VMNetworkAdapter
    ````
@@ -569,8 +569,8 @@ Perform this task on the host.
 1. Reconnect the disconnected network adapter.
 
    ````powershell
-   Get-VMNetworkAdapter -VMName $vMName | 
-   Where-Object { -not $PSItem.Connected } | 
+   Get-VMNetworkAdapter -VMName $vMName |
+   Where-Object { -not $PSItem.Connected } |
    Connect-VMNetworkAdapter -SwitchName $switchName
    ````
 
