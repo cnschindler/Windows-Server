@@ -430,7 +430,7 @@ Perform these steps on the host.
    $vhd = 2..4 | ForEach-Object {
       New-VHD `
          -Path `
-            "C:\Labs\WS2022\VMVirtualHardDisks\WIN-VN1-SRV10-Replacement-$PSItem.VHDX" `
+            "C:\Labs\WS2025\VMVirtualHardDisks\WIN-VN1-SRV10-Replacement-$PSItem.VHDX" `
          -SizeBytes 1TB
       }
    ````
