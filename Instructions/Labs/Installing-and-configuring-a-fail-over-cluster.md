@@ -37,7 +37,7 @@ Adatum wants you to install a failover cluster to run an important virtual machi
 
 #### Desktop experience
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Server Manager**.
 1. In Server Manager, in the menu, click **Manage**, **Add Roles and Features**.
@@ -51,7 +51,7 @@ Perform this task on CL1.
 
 #### PowerShell
 
-Peform this task on CL1.
+**Peform this task on CL1.**
 
 1. In the context menu of **Start**, click **Terminal**.
 1. In Terminal, install the windows feature **iSCSI Target Server** on **VN1-SRV4**.
@@ -67,7 +67,7 @@ Peform this task on CL1.
 
 #### Desktop experience
 
-Perform this task on VN1-SRV4.
+**Perform this task on VN1-SRV4.**
 
 1. In SConfig, enter **15**.
 1. Open **MPIO properties**.
@@ -82,7 +82,7 @@ Perform this task on VN1-SRV4.
 
 #### PowerShell
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. In the context menu of **Start**, click **Terminal**.
 1. In Terminal, activate the Multipath I/O support for iSCSI devices on **VN1-SRV4**.
@@ -97,7 +97,7 @@ Perform this task on CL1.
 
 #### Desktop experience
 
-Perform this task on VN1-SRV4.
+**Perform this task on VN1-SRV4.**
 
 1. In SConfig, enter **15**.
 1. Open **MPIO properties**.
@@ -121,7 +121,7 @@ Perform this task on VN1-SRV4.
 
 #### PowerShell
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. In the context menu of **Start**, click **Terminal**.
 1. In Terminal, create a remote PowerShell session to **VN1-SRV5**.
@@ -191,7 +191,7 @@ Perform this task on CL1.
 
 #### Desktop experience
 
-Perform these steps on CL1.
+**Perform these steps on CL1.**
 
 1. Open **Settings**.
 1. In Settings, click **System**.
@@ -204,7 +204,7 @@ You do not need to wait for the completion of the installation
 
 #### PowerShell
 
-Perform these steps on CL1.
+**Perform these steps on CL1.**
 
 1. In the context menu of **Start**, click **Terminal (Admin)**.
 1. Add the windows capabilities **RSAT: Server DNS Server tools**.
@@ -222,7 +222,7 @@ You do not need to wait for the completion of the installation
 
 #### Desktop Experience
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Server Manager**.
 1. In Server Manager, in the menu, click **Manage**, **Add Roles and Reatures**.
@@ -240,7 +240,7 @@ Repeat the steps of this task to install the role on **VN1-SRV5**.
 
 #### PowerShell
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Terminal**.
 1. Install **Failover Clustering** on **VN1-SRV4** and **VN1-SRV5**.
@@ -256,7 +256,7 @@ Perform this task on CL1.
 
 ### Task 3: Validate the configuration
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In the left pane, in the context-menu of **Failover Cluster Manager**, click **Validate Configuration...**.
@@ -270,7 +270,7 @@ If there are any warnings or error, you may discuss them with your instructor an
 
 ### Task 4: Create a failover cluster
 
-Perform this task on VN1-SRV4.
+**Perform this task on VN1-SRV4.**
 
 1. In SConfig, enter **15**.
 1. Create a cluster with the name **VN1-CLST1** consisting of the nodes **VN1-SRV4** and **VN1-SRV5**. The static address for administrative purposes should be **10.1.1.33**.
@@ -286,7 +286,7 @@ Perform this task on VN1-SRV4.
 
 #### Desktop experience
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, in the context-menu of **Failover Cluster Manager**, click **Connect To Cluster...**
@@ -302,7 +302,7 @@ Perform this task on CL1.
 
 #### PowerShell
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Terminal**.
 1. In Terminal, query the disks on the cluster **VN1-CLST1**.
@@ -349,7 +349,7 @@ Use the following table to configure disks accordingly:
 
 #### Desktop experience
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, expand **VN1-CLST1.ad.adatum.com**, **Storage** and click **Disks**.
@@ -362,7 +362,7 @@ In result, one disk should be assigned to **Disk Witness in Quorum**, the disks 
 
 #### PowerShell
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Terminal**.
 1. In Terminal, query the disks on the cluster **VN1-CLST1**.
@@ -419,7 +419,7 @@ Use the folloing table to configure cluster networks accordingly:
     | iSCSI 2 | 10.1.144.0/24 | **Do not allow cluster network communication on this network**                                             |
     | Cluster | 10.1.160.0/24 | **Allow cluster network communication on this network**                                                    |
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, expand **VN1-CLST1.ad.adatum.com**, and click **Networks**.
@@ -438,7 +438,7 @@ Perform this task on CL1.
 
 ### Task 1: Configure nested virtualization
 
-Perform this task on the host.
+**Perform this task on the host.**
 
 1. Open **Windows PowerShell (Admin)**.
 1. In Windows PowerShell (Admin), shut down **WIN-VN1-SRV4** and **WIN-VN1-SRV5**.
@@ -477,7 +477,7 @@ Perform this task on the host.
 
 #### Desktop Experience
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open Server Manager.
 1. In Server Manager, in the menu, click **Manage**, **Add Roles and Reatures**.
@@ -499,7 +499,7 @@ Repeat the steps of this task to install the role on **VN1-SRV5**.
 
 #### PowerShell
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Terminal**.
 1. Install **Hyper-V** on **VN1-SRV4** and **VN1-SRV5**.
@@ -526,7 +526,7 @@ Perform this task on CL1.
 
 ### Task 3: Configure a virtual switch
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Terminal**.
 1. On **VN1-SRV4** and **VN1-SRV5**, create an external switch connected to the **VNet1** network adapter. Allow the management OS to use the adapter.
@@ -542,7 +542,7 @@ Perform this task on CL1.
 
 ### Task 4: Create a virtual machine
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **File Explorer**.
 1. In File Explorer, copy **\\\\VN1-SRV4\\C$\\LabResources\\TinyCorePure64.vhdx** to **\\\\VN1-SRV4\\C$\\ClusterStorage\\Volume4\\Hyper-V\\Virtual Hard Disks**. Replace 4 with the volume number of the 80 GB disk.
@@ -565,7 +565,7 @@ Perform this task on CL1.
 
 ### Task 5: Configure the virtual machine's operating system
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, expand **VN1-CLST1.ad.adatum.com** and click **Roles**.
@@ -576,7 +576,7 @@ Perform this task on CL1.
 
 ### Task 6: Compare live migration and quick migration
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Terminal**.
 1. In Terminal, test the connection to 10.1.1.184 for a long period.
@@ -624,7 +624,7 @@ Perform this task on CL1.
 
 #### Desktop experience
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Server Manager**.
 1. In Server Manager, in the menu, click **Manage**, **Add Roles and Features**.
@@ -639,7 +639,7 @@ Perform this task on CL1.
 
 #### PowerShell
 
-Peform this task on CL1.
+Peform this task on CL1.**
 
 1. In the context menu of **Start**, click **Terminal**.
 1. Install the windows feature **File Server** on **VN1-SRV4**.
@@ -653,7 +653,7 @@ Peform this task on CL1.
 
 ### Task 2: Configure the File Server role on the failover cluster
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, expand **VN1-CLST1.ad.adatum.com** and click **Roles**.
@@ -676,7 +676,7 @@ Perform this task on CL1.
 
 ### Task 1: Monitor cluster services
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Terminal**.
 1. In Terminal, test the connection to 10.1.1.184 or a long period.
@@ -701,7 +701,7 @@ Keep all windows open for the next task.
 
 ### Task 2: Simulate a failure
 
-Perform this task on the host.
+**Perform this task on the host.**
 
 1. Arrange the **VN1-CL1 on *host* Virtual Machine Connection** window so, that you can monitor it while continuing with the next steps.
 1. Open **Hyper-V-Manager**.
@@ -717,7 +717,7 @@ Perform this task on the host.
 
 ### Task 1: Configure cluster-aware updating
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, in the context-menu of **VN1-CLST1.ad.adatum.com**, click **More Actions**, **Cluster-Aware Updating**.
@@ -734,7 +734,7 @@ Perform this task on CL1.
 
 ### Task 2: Run cluster-aware updating
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, in the context-menu of **VN1-CLST1.ad.adatum.com**, click **More Actions**, **Cluster-Aware Updating**.
@@ -750,7 +750,7 @@ While the updates progress, you may want to observe the nodes in **Failover Clus
 
 ### Task 3: Configure cluster self-updating options
 
-Perform this task on CL1.
+**Perform this task on CL1.**
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, in the context-menu of **VN1-CLST1.ad.adatum.com**, click **More Actions**, **Cluster-Aware Updating**.
