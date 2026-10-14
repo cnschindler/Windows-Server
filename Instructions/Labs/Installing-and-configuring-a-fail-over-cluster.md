@@ -124,7 +124,7 @@ Adatum wants you to install a failover cluster to run an important virtual machi
 **Perform this task on CL1.**
 
 1. In the context menu of **Start**, click **Terminal**.
-1. In Terminal, create a remote PowerShell session to **VN1-SRV5**.
+1. In Terminal, create a remote PowerShell session to **VN1-SRV4**.
 
     ````powershell
     Enter-PSSession VN1-SRV4
@@ -207,7 +207,7 @@ You do not need to wait for the completion of the installation
 **Perform these steps on CL1.**
 
 1. In the context menu of **Start**, click **Terminal (Admin)**.
-1. Add the windows capabilities **RSAT: Server DNS Server tools**.
+1. Add the windows capabilities **RSAT: Failover Clustering Tools**.
 
     ````powershell
     Get-WindowsCapability `
