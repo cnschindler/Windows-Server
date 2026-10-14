@@ -708,7 +708,6 @@ Keep all windows open for the next task.
 1. In Hyper-V-Manager, in the context-menu of the virtual computer, running the cluster roles, click **Turn off...**.
 
     > After a few seconds, in **Failover Cluster Manager**, **Roles** the **amincenter** should move to the other node and the Windows Admin Center should stay available.
-
     > After a few seconds, **VN1-SRV23** will become **Unmonitored**. After some minutes, the virtual machine, will start on **VN1-SRV5**. The network connection should work again, but you will need to reconnect.
 
 1. In the context-menu of the virtual computer you just turned off, click **Start**.
@@ -729,6 +728,15 @@ Keep all windows open for the next task.
 1. Click **Close**.
 1. In **VN1-CLST1 - Cluster-Aware Updating**, click **Analyze cluster readiness**.
 1. Review the results and click **Close**.
+1. Open **Terminal**.
+1. In Terminal, enable Firewall Rules required for CAU.
+
+    ````powershell
+    Invoke-Command -ComputerName vn1-srv4,vn1-srv5 -ScriptBlock {Enable-NetFirewallRule -Name "Wininit-Shutdown-In-Rule-TCP-RPC"}
+    Invoke-Command -ComputerName vn1-srv4,vn1-srv5 -ScriptBlock {Enable-NetFirewallRule -Name "Wininit-Shutdown-In-Rule-TCP-RPC-EPMapper"}
+    ````
+
+1. Repeat step 6 and 7 - there should be no more errors regarding firewall rules. Ignore warnings for proxy server configuration...
 1. In **VN1-CLST1 - Cluster-Aware Updating**, click **Create or modify Updating Run Profile**.
 1. In Updating Run Profile Editor, review the options and click **Close**.
 
