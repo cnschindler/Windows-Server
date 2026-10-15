@@ -635,26 +635,6 @@ You can continue with the lab, but the failover will only succeed, when the **Re
 
 1. Restart the computer
 
-**Perform this task on CL1.**
-
-1. Open Server Manager.
-1. In Server Manager, in the menu, click **Manage**, **Add Roles and Reatures**.
-1. In the Add Rules and Features Wizard, on page **Before You Begin**, click **Next >**.
-1. On page Installation Type, ensure **Role-based or feature-based installation** is selected and click **Next >**.
-1. On page Server Selection, click **VN2-SRV1.ad.adatum.com** and click **Next >**.
-1. On page Server Roles, activate **Hyper-V**
-1. In Add features that are required for Hyper-V, click **Add Features**.
-1. In **Add Roles and Features Wizard**, on page **Server Roles**, click **Next >**.
-1. On page Features, click **Next >**.
-1. On page Hyper-V, click **Next >**.
-1. On page Virtual Switches, click **Next >**.
-1. On page Virtual Machine Migration, click **Next >**.
-1. On page Default Stores, in **Default location for virtual hard disk files**, type **C:\\ClusterStorage\\Volume1\\Hyper-V\\Virtual Hard Disks**. In **Default location for virtualmachine configuration files**, type **C:\\ClusterStorage\\Volume1\\Hyper-V**. Click **Next >**.
-1. On page Confirmation, activate **Restart the destination server automatically if required** and click **Install**.
-1. On  page **Results**, wait for the installation to succeed, then click **Close**.
-
-Repeat the steps of this task to install the role on **VN3-SRV1**.
-
 #### PowerShell
 
 Perform this task on CL1.
@@ -677,6 +657,17 @@ Perform this task on CL1.
       -VirtualHardDiskPath `
          'C:\ClusterStorage\Volume1\Hyper-V\Virtual Hard Disks' `
         -VirtualMachinePath 'C:\ClusterStorage\Volume1\Hyper-V'
+    ````
+
+1. Enable Live Migration on VN2-SRV1 and VN3-SRV1.
+
+   ````powershell
+   Set-VMHost `
+      -UseAnyNetworkForMigration $true `
+      -VirtualMachineMigrationAuthenticationType CredSSP `
+      -MaximumVirtualMachineMigrations 2 `
+      -ComputerName Trainer-SR1
+   Enable-VMMMigration -Computername $computerName
     ````
 
 ### Task 2: Create a virtual machine
