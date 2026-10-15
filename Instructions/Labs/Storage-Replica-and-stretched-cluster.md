@@ -624,7 +624,18 @@ You can continue with the lab, but the failover will only succeed, when the **Re
 
 #### Desktop Experience
 
-Perform this task on CL1.
+**Perform this task on VN2-SRV1 and VN1-SRV3.**
+
+1. Open **Terminal**.
+1. Configure the Boot Configuration Data Store to automatical launch the hypervisor.
+
+    ````powershell
+    bcdedit /set hypervisorlaunchtype auto
+    ````
+
+1. Restart the computer
+
+**Perform this task on CL1.**
 
 1. Open Server Manager.
 1. In Server Manager, in the menu, click **Manage**, **Add Roles and Reatures**.
