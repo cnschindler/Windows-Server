@@ -667,7 +667,7 @@ Perform this task on CL1.
       -VirtualMachineMigrationAuthenticationType CredSSP `
       -MaximumVirtualMachineMigrations 2 `
       -ComputerName $computerName
-   Enable-VMMMigration -Computername $computerName
+   Enable-VMMigration -Computername $computerName
     ````
 
 ### Task 2: Create a virtual machine
