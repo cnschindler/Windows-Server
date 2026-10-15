@@ -561,11 +561,11 @@ Perform this task on VN2-SRV1.
  -->
 ### Task 3: Add disk to cluster shared volumes
 
-Perform this task on CL1.
+Perform this task on VN2-SRV1.
 
 1. Open **Failover Cluster Manager**.
 1. In Failover Cluster Manager, in the context-menu of **Failover Cluster Manager**, click **Connect to Cluster...**
-1. Select Cluster, type **VN2-VN3-CLST1.ad.adatum.com** and click **OK**.
+1. Click **OK**.
 1. In Failover Cluster Manager, expand **VN2-VN3-CLST1.ad.adatum.com**, **Storage**, and click **Disks**.
 1. Under Disks (4), in the context menu of the disk with **Capacity** of **20 GB** with a **Status** of **Online**, click **Add to Cluster Shared Volumes**.
 
