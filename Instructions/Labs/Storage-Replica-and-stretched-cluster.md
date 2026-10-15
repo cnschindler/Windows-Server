@@ -417,7 +417,7 @@ Perform this task on CL1.
 1. In Active Directory Administrative Center, click **ad (local)**.
 1. In ad (local), double-click **Entitling groups**.
 1. In Entitling groups, double-click **Witness Modify**.
-1. In Witness VN1-CLST Modify, click **Members**.
+1. In Witness Modify, click **Members**.
 1. Under Members, click **Add...**.
 1. In Select Users, Contacts, Computers, Services Accounts, or Groups, click **Object Types...**.
 1. In Object Types, activate **Computers** and click **OK**.
