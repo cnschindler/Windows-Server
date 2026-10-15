@@ -370,7 +370,7 @@ Perform this task on VN2-SRV1.
 
    Note: Due to a bug in Windows Server, the Storage Replica test cannot plot the results with regional settings other than English (United States).
 
-1. Open **Window PowerShell (Admin)**.
+1. Open **Terminal (Admin)**.
 1. Create a new directory **C:\Temp**.
 
    ````powershell
