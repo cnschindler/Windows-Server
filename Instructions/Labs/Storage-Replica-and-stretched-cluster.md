@@ -666,7 +666,7 @@ Perform this task on CL1.
       -UseAnyNetworkForMigration $true `
       -VirtualMachineMigrationAuthenticationType CredSSP `
       -MaximumVirtualMachineMigrations 2 `
-      -ComputerName Trainer-SR1
+      -ComputerName $computerName
    Enable-VMMMigration -Computername $computerName
     ````
 
